@@ -1,0 +1,40 @@
+{
+  "name": "nebula-js",
+  "version": "0.1.0",
+  "description": "nebula js library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varchar-io/nebula-js.git"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://nebula.bz",
+  "bugs": {
+    "url": "https://github.com/varchar-io/nebula-js/issues"
+  },
+  "keywords": [
+    "nebula",
+    "lib",
+    "analytics"
+  ],
+  "author": "Columns Ai <support@columns.ai>",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx protoc --ts_out=src/gen --ts_opt=client_grpc1,long_type_number --proto_path=src nebula.proto && tsc",
+    "build-native": "protoc --proto_path=src --js_out=library=nebula,binary:src/gen nebula.proto && tsc"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.12",
+    "@protobuf-ts/plugin": "^2.9.1",
+    "@protobuf-ts/protoc": "^2.9.1",
+    "@protobuf-ts/runtime": "^2.9.1",
+    "@protobuf-ts/runtime-rpc": "^2.9.1",
+    "async": "^1.5.2",
+    "finalhandler": "^1.1.2",
+    "google-protobuf": "^3.8.0",
+    "json-bigint": "^1.0.0",
+    "winston": "3.11.0"
+  },
+  "devDependencies": {
+    "typescript": "5.3.2"
+  }
+}
