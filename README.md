@@ -1,6 +1,6 @@
 # nebula-js
-Javascript library to interact with Nebula
-
+Javascript library to interact with Nebula.
+The library is written in Typescript and compiled to ES6, it can be found on npm as `nebula-js-lib`.
 
 ## nebula
 Nebula is a high-performance on-demand OLAP engine that allows you to connect many different data sources and provide a query interface to run fast computing like data aggregation.
@@ -35,4 +35,9 @@ On the repo root.
 
 NOTE: till the day of writing, protoc is still not supporting ES6 import/export, so we use `@protobuf-ts/plugin` plugin for the time being.
 NOTE-1: the default option is to convert long type to bigint which is safe. However, we use number instead for legacy reason. We will update this in future.
-   
+
+## publish
+The nebula-js is published to npm. To publish a new version:
+1. npm login
+2. npm version patch
+3. npm publish
