@@ -23,8 +23,8 @@ import {
   TableStateRequest,
 } from '../gen/nebula';
 import { V1Client } from '../gen/nebula.grpc-client';
-import { LOG } from './log';
 import { NebulaRequest, NebulaResponse, TableState } from './types';
+import { LOG } from './log';
 import { seconds } from './utils';
 
 const MESSAGE_LENGTH = 64 * 1024 * 1024;

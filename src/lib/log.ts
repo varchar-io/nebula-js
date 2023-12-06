@@ -5,11 +5,11 @@
  * Terms & conditions to be found at `LICENSE.txt`.
  */
 
-import winston, { format } from 'winston';
+import * as winston from 'winston';
 
-const LogFormat = format.combine(
-  format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-  format.printf(({ message, timestamp }) => `[${timestamp}]: ${message}`),
+const LogFormat = winston.format.combine(
+  winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+  winston.format.printf(({ message, timestamp }) => `[${timestamp}]: ${message}`),
 );
 
 class Log {
@@ -23,7 +23,7 @@ class Log {
       format: LogFormat,
       transports: [
         new winston.transports.Console({
-          format: format.combine(LogFormat, format.colorize({ all: true })),
+          format: winston.format.combine(LogFormat, winston.format.colorize({ all: true })),
           stderrLevels: ['error'],
         }),
       ],

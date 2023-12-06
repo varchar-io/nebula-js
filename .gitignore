@@ -44,6 +44,7 @@ src/gen/*
 node_modules
 package-lock.json
 dist/
+dist2/
 
 # ds_store looks like a macos thing
 .DS_STORE

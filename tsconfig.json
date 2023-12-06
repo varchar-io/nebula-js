@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "module": "commonjs",
+    "target": "es6",
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
     "noImplicitAny": false,
     "noUnusedLocals": false,
     "noImplicitReturns": true,
@@ -15,15 +19,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "outDir": "dist",
-    "module": "ES2020",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "strictNullChecks": false,
+    "strictNullChecks": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules",
     "dist",
+    "src/client"
   ]
 }

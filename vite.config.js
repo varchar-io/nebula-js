@@ -11,14 +11,31 @@ import {
 import {
   defineConfig
 } from 'vite';
+import dts from 'vite-plugin-dts';
 
+// TODO: we'll see if future vite version fixed the issue.
+// very unfortunate, the vite built bundle file is not working well (unsure reason).
+// just share the source as export for now.
 export default defineConfig({
   build: {
+    outDir: resolve(__dirname, './dist'),
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, './dist/lib/index.js'),
-      name: 'nebula.js',
+      entry: resolve(__dirname, './src/index.ts'),
+      name: 'nebula',
       fileName: 'index',
+      formats: ['cjs', 'es'],
     },
-  }
+  },
+  plugins: [dts({
+    rollupTypes: true,
+    rollupOptions: {
+      input: resolve(__dirname, './src/index.ts'),
+      output: {
+        dir: resolve(__dirname, './dist'),
+        entryFileNames: 'index.d.ts',
+        format: 'es',
+      },
+    }
+  })],
 });
