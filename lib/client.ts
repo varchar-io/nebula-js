@@ -294,3 +294,5 @@ export class NebulaClient {
     });
   };
 }
+
+export const nebulaClient = () => new NebulaClient();

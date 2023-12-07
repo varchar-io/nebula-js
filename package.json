@@ -1,6 +1,6 @@
 {
   "name": "nebula-js-lib",
-  "version": "0.2.0",
+  "version": "0.2.7",
   "description": "nebula js library",
   "repository": {
     "type": "git",
@@ -17,14 +17,13 @@
     "analytics"
   ],
   "author": "Columns Ai <support@columns.ai>",
-  "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npx protoc --ts_out=gen --ts_opt=client_grpc1,long_type_number --proto_path=. nebula.proto && tsc && vite build",
+    "build": "npx protoc --ts_out=gen --ts_opt=client_grpc1,long_type_number --proto_path=. nebula.proto && tsc && npx webpack",
     "build-native": "protoc --proto_path=. --js_out=library=nebula,binary:./gen nebula.proto && tsc"
   },
   "dependencies": {
@@ -45,6 +44,9 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "vite": "^5.0.5",
-    "vite-plugin-dts": "3.6.4"
+    "vite-plugin-dts": "3.6.4",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^1.7.2"
   }
 }
