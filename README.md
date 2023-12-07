@@ -41,9 +41,3 @@ The nebula-js is published to npm. To publish a new version:
 1. npm login
 2. npm version patch
 3. npm publish
-
-## branches
-- main: source code only for other projects to easily import the shared code through subtree or submodule.
-- dev: includes package.json, tsconfig.json, vite.config.js etc. for development purpose.
-
-Every change will be done in dev branch, and then only source code merged to main branch.
