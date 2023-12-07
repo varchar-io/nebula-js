@@ -17,6 +17,7 @@ export * from './lib/utils';
 export * from './lib/client';
 
 // variables need to be exported explicitly
+import { LoadRequest, LoadType, OrderType } from './gen/nebula';
 import {
   TimeUnit,
 } from './lib/types';
@@ -26,6 +27,9 @@ import { NebulaClient } from './lib/client';
 
 // export all
 export default {
+  LoadRequest,
+  LoadType,
+  OrderType,
   TimeUnit,
   LOG,
   NebulaClient,
