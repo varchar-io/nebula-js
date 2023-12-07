@@ -21,7 +21,7 @@ export default defineConfig({
     outDir: resolve(__dirname, './dist'),
     lib: {
       // Could also be a dictionary or array of multiple entry points
-      entry: resolve(__dirname, './src/index.ts'),
+      entry: resolve(__dirname, './index.ts'),
       name: 'nebula',
       fileName: 'index',
       formats: ['cjs', 'es'],
@@ -30,7 +30,7 @@ export default defineConfig({
   plugins: [dts({
     rollupTypes: true,
     rollupOptions: {
-      input: resolve(__dirname, './src/index.ts'),
+      input: resolve(__dirname, './index.ts'),
       output: {
         dir: resolve(__dirname, './dist'),
         entryFileNames: 'index.d.ts',
