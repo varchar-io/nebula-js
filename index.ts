@@ -6,6 +6,7 @@ import { NebulaClient } from '../../dist/lib/client';
  * Terms & conditions to be found at `LICENSE.txt`.
  */
 
+// "export *" does not work with nodejs
 // nebula protocol types
 export * from './gen/nebula';
 export * from './gen/nebula.grpc-client';
@@ -14,3 +15,20 @@ export * from './gen/nebula.grpc-client';
 export * from './lib/types';
 export * from './lib/log';
 export * from './lib/utils';
+export * from './lib/client';
+
+// variables need to be exported explicitly
+import {
+  TimeUnit,
+} from './lib/types';
+import { LOG } from './lib/log';
+import { seconds } from './lib/utils';
+import { NebulaClient } from './lib/client';
+
+// export all
+export default {
+  TimeUnit,
+  LOG,
+  NebulaClient,
+  seconds,
+};
