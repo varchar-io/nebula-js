@@ -21,7 +21,7 @@
     "isolatedModules": true,
     "outDir": "dist",
     "strictNullChecks": true,
-    "declaration": true
+    "declaration": false
   },
   "exclude": [
     "node_modules",

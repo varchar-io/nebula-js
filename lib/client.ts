@@ -280,13 +280,17 @@ export class NebulaClient {
           return;
         }
 
+        // NODEJS issue: new Uint8Array(reply.data) will come back a Buffer
+        // https://github.com/timostamm/protobuf-ts/issues/519#issuecomment-1518624808
+        const data = Array.from(reply.data);
+
         const result: NebulaResponse = {
           error: stats.error,
           duration: stats.queryTimeMs,
           rows_scan: stats.rowsScanned,
           blocks_scan: stats.blocksScanned,
           rows_return: stats.rowsReturn,
-          data: reply.data,
+          data,
         };
 
         resolve(result);

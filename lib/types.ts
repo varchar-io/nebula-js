@@ -136,7 +136,7 @@ export interface NebulaResponse {
   rows_scan: number;
   blocks_scan: number;
   rows_return: number;
-  data: Uint8Array;
+  data: number[];
 }
 
 export interface IHandler {
