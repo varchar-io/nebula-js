@@ -1,5 +1,4 @@
-/*
-import { NebulaClient } from '../../dist/lib/client';
+/**
  * Copyright 2020-present columns.ai
  *
  * The code belongs to https://columns.ai
@@ -14,3 +13,4 @@ export * from './gen/nebula.grpc-client';
 export * from './lib/types';
 export * from './lib/log';
 export * from './lib/utils';
+export * from './lib/client';
