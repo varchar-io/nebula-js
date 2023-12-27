@@ -59,24 +59,7 @@ export type TimelineOptions = {
   // N windows to be predicated
   forecast: number;
   // unit is to round time point into that unit
-  unit: TimeUnit;
-};
-
-// supported unit in Nebula
-// static constexpr int32_t HOUR_CASE = 1;
-// static constexpr int32_t DAY_CASE = 2;
-// static constexpr int32_t WEEK_CASE = 3;
-// static constexpr int32_t MONTH_CASE = 4;
-// static constexpr int32_t QUARTER_CASE = 5;
-// static constexpr int32_t YEAR_CASE = 6;
-export enum TimeUnit {
-  NONE = 0,
-  HOUR = 1,
-  DAY = 2,
-  WEEK = 3,
-  MONTH = 4,
-  QUARTER = 5,
-  YEAR = 6,
+  unit: number;
 };
 
 export interface CodeColumn {

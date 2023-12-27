@@ -11,6 +11,5 @@ export * from './gen/nebula.grpc-client';
 
 // nebula client and types
 export * from './lib/types';
-export * from './lib/log';
 export * from './lib/utils';
 export * from './lib/client';
