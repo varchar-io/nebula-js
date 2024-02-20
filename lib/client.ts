@@ -237,7 +237,11 @@ export class NebulaClient {
       if (columns && columns.length > 0) {
         const cc: CustomColumn[] = [];
         columns.forEach((c) => {
-          cc.push(CustomColumn.create(c));
+          cc.push(CustomColumn.create({
+            column: c.name,
+            type: c.type,
+            expr: c.expr,
+          }));
         });
         req.custom = cc;
       }
