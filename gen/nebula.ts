@@ -336,6 +336,14 @@ export interface QueryRequest {
      * @generated from protobuf field: uint64 time_unit = 13;
      */
     timeUnit: number;
+    /**
+     * timezone offset in minutes (following javascript getTimezoneOffset
+     * convention) timezone behind GMT is positive, ahead is negative (how to
+     * bring it back to GMT)
+     *
+     * @generated from protobuf field: int64 tz_offset = 14;
+     */
+    tzOffset: number;
 }
 /**
  * define query processing metrics
@@ -1557,11 +1565,12 @@ class QueryRequest$Type extends MessageType<QueryRequest> {
             { no: 10, name: "order", kind: "message", T: () => Order },
             { no: 11, name: "timeline", kind: "scalar", T: 8 /*ScalarType.BOOL*/ },
             { no: 12, name: "custom", kind: "message", repeat: 1 /*RepeatType.PACKED*/, T: () => CustomColumn },
-            { no: 13, name: "time_unit", kind: "scalar", T: 4 /*ScalarType.UINT64*/, L: 2 /*LongType.NUMBER*/ }
+            { no: 13, name: "time_unit", kind: "scalar", T: 4 /*ScalarType.UINT64*/, L: 2 /*LongType.NUMBER*/ },
+            { no: 14, name: "tz_offset", kind: "scalar", T: 3 /*ScalarType.INT64*/, L: 2 /*LongType.NUMBER*/ }
         ]);
     }
     create(value?: PartialMessage<QueryRequest>): QueryRequest {
-        const message = { table: "", start: 0, end: 0, window: 0, dimension: [], metric: [], top: 0, timeline: false, custom: [], timeUnit: 0 };
+        const message = { table: "", start: 0, end: 0, window: 0, dimension: [], metric: [], top: 0, timeline: false, custom: [], timeUnit: 0, tzOffset: 0 };
         globalThis.Object.defineProperty(message, MESSAGE_TYPE, { enumerable: false, value: this });
         if (value !== undefined)
             reflectionMergePartial<QueryRequest>(this, message, value);
@@ -1610,6 +1619,9 @@ class QueryRequest$Type extends MessageType<QueryRequest> {
                     break;
                 case /* uint64 time_unit */ 13:
                     message.timeUnit = reader.uint64().toNumber();
+                    break;
+                case /* int64 tz_offset */ 14:
+                    message.tzOffset = reader.int64().toNumber();
                     break;
                 default:
                     let u = options.readUnknownField;
@@ -1662,6 +1674,9 @@ class QueryRequest$Type extends MessageType<QueryRequest> {
         /* uint64 time_unit = 13; */
         if (message.timeUnit !== 0)
             writer.tag(13, WireType.Varint).uint64(message.timeUnit);
+        /* int64 tz_offset = 14; */
+        if (message.tzOffset !== 0)
+            writer.tag(14, WireType.Varint).int64(message.tzOffset);
         let u = options.writeUnknownFields;
         if (u !== false)
             (u == true ? UnknownFieldHandler.onWrite : u)(this.typeName, message, writer);

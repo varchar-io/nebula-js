@@ -60,6 +60,8 @@ export type TimelineOptions = {
   forecast: number;
   // unit is to round time point into that unit
   unit: number;
+  // offset in minutes: value of getTimezoneOffset()
+  offset: number;
 };
 
 export interface CodeColumn {

@@ -230,6 +230,7 @@ export class NebulaClient {
         req.timeline = true;
         req.window = query.timeline.window;
         req.timeUnit = query.timeline.unit;
+        req.tzOffset = query.timeline.offset;
       }
 
       // Nebula SDK related - customized columns through instant UDF
