@@ -7,6 +7,16 @@
 
 import { CustomType, Operation, Order, Rollup } from "../gen/nebula";
 
+// a filter range is a pair of left and right value
+// if right >= left, it is an and condition: "left <= x <= right"
+// if right < left, it is an or condition: "x <= right or x >= left"
+// specify left/right as null to indicate no limit.
+// specify left/right as the same number to indicate a single value.
+export type FilterRange = {
+  left: number;
+  right: number;
+};
+
 // example state returned by Nebula
 // "block_count":1,"row_count":9,"memory_size":171,
 // "min_time":1621030740,"max_time":1621030740,
@@ -47,6 +57,7 @@ export interface OptionType {
   display: string;
   key: string;
   alias: string;
+  filter: FilterRange;
   edited?: boolean;
   as: (alias: string) => OptionType;
 }
